@@ -7,12 +7,14 @@
 
 #include "sci.h"
 
+
 volatile unsigned int Flag_SCI = 0;
+char ReciveData;
 
 interrupt 23 void SCIRecive_ISR(void){
 	SCI2S1;
 	ReciveData = SCI2D;
-	Flag_SCI = 1;		
+	EVENT_SCI = 1;		
 }
 
 void SCI_Init(void){

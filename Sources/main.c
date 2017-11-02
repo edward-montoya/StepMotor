@@ -2,18 +2,21 @@
 #include "derivative.h" /* include peripheral declarations */
 #include "sci.h"
 #include "general.h"
-
-
+#include "events.h"
 
 
 void main(void) {
-  EnableInterrupts;
-  /* include your code here */
-
   
+  /* include your code here */
+  	SOPT1_COPT = 0;
+    Port_Init();
+    SCI_Init();
+    EnableInterrupts;
+    
 
   for(;;) {
-    __RESET_WATCHDOG();	/* feeds the dog */
-  } /* loop forever */
-  /* please make sure that you never leave main */
+	  if(INT_EVENTS == 0)
+		  __asm WAIT
+	  processEvents();
+  }
 }

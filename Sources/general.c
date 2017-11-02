@@ -22,3 +22,20 @@ void MCG_Init(void) {
 	MCGC1_CLKS = 0b00;
 	while(MCGSC_CLKST != 0b11){};	
 }
+
+void Port_Init(void)
+{
+	PTADD=0xFF;//OUT FOR LEDS
+	PTADS = 0xFF;
+	PTAD=0x00;	
+}
+
+void msDelay(word ms){
+	unsigned int i;
+	unsigned int j;
+	for(j=0;j < ms;j++){
+		for(i=0;i < MSMODTIMER;i++){
+			
+		}
+	}
+}
