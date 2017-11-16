@@ -39,7 +39,7 @@ void processEvents(void){
 			turns = ((temp * ONE_TURN)/360);
 			for(i = 0; i < turns;i++){
 				stepper(dir);
-				msDelay(12);
+				msDelay(5);
 			}
 			PTAD = 0;
 			SCI_PutMsg("OK");
